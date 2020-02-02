@@ -107,7 +107,7 @@ plotly.offline.iplot([trace_first_three_pops])
 
 ### Modifying our first trace
 
-Note that by default, plotly sets the type of trace as a line trace.  In the next example, let's make our trace a bar trace by setting the `'type'` key equal to `'bar'`.  We can continue to use our lists of `x_values` and `y_values` that we defined above and used in our previous trace. To make our new trace more informative, we can assign labels to our data when we plot it. Normally, when we see a bar graph, there are labels along the x-axis for specific values. Understanding that we are plotting data about different cities, our labels would sensibly be a list of corresponding city names. 
+Note that by default, plotly sets the type of trace as a line trace.  In the next example, let's make our trace a bar trace by setting the `'type'` key equal to `'bar'`.  We can continue to use our lists of `x_values` and `y_values` that we defined above and used in our previous trace. To make our new trace more informative, we can assign labels to our data when we plot it. Normally, when we see a bar graph, there are labels along the x-axis for specific values. Understanding that we are plotting data about different cities, our labels would sensibly be a list of corresponding city names.
 
 We can designate these corresponding city names in our trace dictionary by assigning a list of strings to the `text` key:
 
@@ -119,7 +119,7 @@ Assign the variable `text_values` equal to a list of names for the first three c
 
 
 ```python
-text_values = []
+text_values = ["Buenos Aires", "Toronto", "Marakesh"]
 bar_trace_first_three_pops = {'type': 'bar', 'x': x_values, 'y': y_values, 'text': text_values}
 ```
 
@@ -139,9 +139,9 @@ Ok, now let's plot two different traces side by side.  First, create another tra
 
 
 ```python
-area_values = None
-bar_trace_first_three_areas = {'type': 'bar', 'x': [], 'y': [], 'text': []}
-bar_trace_first_three_pops = {'type': 'bar', 'x': [], 'y': [], 'text': []}
+area_values = [cities[0]['Area'], cities[1]['Area'], cities[2]['Area']]
+bar_trace_first_three_areas = {'type': 'bar', 'x': x_values, 'y': area_values, 'text': text_values}
+bar_trace_first_three_pops = {'type': 'bar', 'x': x_values, 'y': y_values, 'text': text_values}
 ```
 
 
@@ -161,9 +161,9 @@ In this section, we saw how we use data visualizations to better understand the 
 Then we define a trace, which is a Python dictionary.
 
     trace = {'x': [], 'y': [], 'text': [], 'type': 'bar'}
-    
+
 Finally, we display our trace with a call to the following method:
 
     plotly.offline.iplot([trace])
-    
+
 Easy peasy, quick and easy!
